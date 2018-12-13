@@ -24,7 +24,6 @@ func resetSequenceLoop() {
 
 // Get 取得
 func Get() uint64 {
-	fmt.Printf("ts\t%d\npid\t%d\nseq\t%d\n", time.Now().Unix(), os.Getpid(), seq)
 	s := fmt.Sprintf("%d%d%d", time.Now().Unix(), os.Getpid(), atomic.LoadUint32(&seq))
 	atomic.StoreUint32(&seq, atomic.AddUint32(&seq, 1))
 	n, _ := strconv.ParseUint(s, 10, 64)
