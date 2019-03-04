@@ -5,9 +5,10 @@ import (
 )
 
 func TestGet(t *testing.T) {
-	println(Get())
-}
-
-func TestText(t *testing.T) {
-	println(Text())
+	n, e := Get()
+	if e != nil {
+		t.Errorf(e.Error())
+		return
+	}
+	t.Log(n)
 }
